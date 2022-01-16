@@ -1,0 +1,403 @@
+<!-- <p>I am a Header! of LegalCliq</p> -->
+
+<header>
+  <div class="container-fluid">
+    <div class="row">
+      <nav class="navbar navbar-expand-lg navbar">
+        <div class="col-5 d-flex">
+          <img
+            src="../../../assets/images/LCFavicon.png"
+            alt=""
+            width="35"
+            height="35"
+            class="d-inline-block align-text-top"
+          />
+          <h1 style="font-size: 25px">LegalCliQ</h1>
+        </div>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <mat-icon class="navbar-toggler-icon">menu </mat-icon>
+        </button>
+
+        <div
+          class="col-7"
+          class="collapse navbar-collapse"
+          id="navbarSupportedContent"
+        >
+          <ul class="navbar-nav d-flex justify-content-between">
+            <li class="nav-item p-2">
+              <a class="nav-link" routerLink="/home" routerLinkActive="active"
+                >Home</a
+              >
+            </li>
+            <li class="nav-item p-2">
+              <a class="nav-link" routerLink="userproducts">Products</a>
+            </li>
+
+            <li class="nav-item p-2">
+              <a class="nav-link" routerLink="contact">Contact</a>
+            </li>
+
+            <li class="nav-item p-2">
+              <a class="nav-link" routerLink="about"> About us</a>
+            </li>
+            <li class="nav-item p-2">
+              <a class="nav-link" routerLink="suppliers"> Supplier</a>
+            </li>
+
+            <li class="nav-item p-2">
+              <a class="nav-link" routerLink="/admin">Admin</a>
+            </li>
+            <li class="nav-item p-2">
+              <button
+                mat-raised-button
+                color="accent"
+                (click)="openDialog()"
+                *ngIf="!login"
+              >
+                Login
+              </button>
+            </li>
+            <li class="nab-item p-2">
+              <button
+                mat-raised-button
+                color="accent"
+                (click)="openDialog1()"
+                *ngIf="!login"
+              >
+                Signup
+              </button>
+            </li>
+            <li class="nav-item p-2">
+              <a
+                class="nav-link cart"
+                mat-raised-button
+                color="accent"
+                matBadge="{{ cartItems.product.length || 0 }}"
+                (click)="openDialog2()"
+                *ngIf="login"
+              >
+                <mat-icon class="material-icons">shopping_cart</mat-icon>
+              </a>
+            </li>
+            <li class="nav-item m-2">
+              <a
+                *ngIf="login"
+                (click)="logout()"
+                mat-raised-button
+                color="accent"
+              >
+                <mat-icon class="material-icons">logout</mat-icon>
+              </a>
+            </li>
+
+            <li class="nav-item m-2">
+              <a
+                routerlink=""
+                class="nav-link"
+                *ngIf="login"
+                mat-raised-button
+                color="accent"
+              >
+                <mat-icon class="material-icons">account_box</mat-icon>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+  </div>
+</header>
+<mat-divider [inset]="true"></mat-divider>
+
+<!-- <li class="d-flex">
+  <img
+    src="../../../assets/images/LCFavicon.png"
+    alt=""
+    width="35"
+    height="35"
+    class="d-inline-block align-text-top"
+  />
+  <h1 style="font-size: 25px">LegalCliQ</h1>
+</li> -->
+
+<!-- <mat-toolbar class="d-md-flex justify-content-between">
+  <div fxShow="true" fxHide.gt-sm="true">
+    <button mat-icon-button (click)="sidenav.toggle()">
+      <mat-icon>menu</mat-icon>
+    </button>
+  </div>
+  <li><a routerlink="/home">Home</a></li>
+  <li><a routerlink="/userproducts">Products</a></li>
+  <li><a routerlink="/contact">Contact</a></li>
+  <li><a routerlink="/suppliers"> Supplier</a></li>
+  <li><a routerlink="/about"> About us</a></li>
+  <li><a routerlink="/admin">Admin</a></li>
+  <li>
+    <button
+      mat-raised-button
+      color="accent"
+      (click)="openDialog()"
+      *ngIf="!login"
+    >
+      Login
+    </button>
+  </li>
+  <li>
+    <button
+      mat-raised-button
+      color="accent"
+      (click)="openDialog1()"
+      *ngIf="!login"
+    >
+      Signup
+    </button>
+  </li>
+  <li>
+    <a
+      mat-raised-button
+      color="accent"
+      matBadge="{{ cartItems.length }}"
+      (click)="openDialog2()"
+    >
+      <mat-icon class="material-icons">add_shopping_cart</mat-icon>
+    </a>
+  </li>
+  <li>
+    <button *ngIf="login" (click)="logout()" mat-raised-button color="accent">
+      <mat-icon class="material-icons">logout</mat-icon>
+    </button>
+  </li>
+
+  <li>
+    <a routerlink="" *ngIf="login" mat-raised-button color="accent">
+      <mat-icon class="material-icons">account_box</mat-icon>
+    </a>
+  </li>
+</mat-toolbar>
+<mat-sidenav-container fxFlexFill class="example-container">
+  <mat-sidenav
+    color="primary"
+    #sidenav
+    fxLayout="column"
+    mode="over"
+    opened="false"
+    fxHide.gt-sm="true"
+  >
+  </mat-sidenav>
+</mat-sidenav-container> -->
+<!-- <div
+  class="modal fade"
+  id="exampleModal_1"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel_1"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="exampleModalLabel_1">Login form</h2>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <form class="loginForm" novalidate>
+          <div class="col-md-12">
+            <input
+              class="form-control"
+              type="text"
+              name="name"
+              placeholder="User Name"
+              required
+            />
+            <div *ngIf="" class="invalid-feedback">
+              <div *ngIf="">Please Fill the Username!</div>
+            </div>
+          </div>
+          <br />
+          <div class="col-md-12">
+            <input
+              class="form-control"
+              type="password"
+              name="password"
+              placeholder="Password"
+              required
+            />
+            <div *ngIf="" class="invalid-feedback">
+              <div *ngIf="">Please Fill the Password!</div>
+            </div>
+          </div>
+
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+            <button id="submit" type="submit" class="btn btn-primary">
+              Login
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<div
+  class="modal fade"
+  id="exampleModal"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="exampleModalLabel">Sign Up form</h2>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <form class="requires-validation" novalidate>
+          <div class="col-md-12">
+            <input
+              class="form-control"
+              type="text"
+              name="name"
+              placeholder="First Name"
+              required
+            />
+            <div class="valid-feedback">Username field is valid!</div>
+            <div class="invalid-feedback">oops! Firstname is not filled.</div>
+          </div>
+          <br />
+          <div class="col-md-12">
+            <input
+              class="form-control"
+              type="text"
+              name="name"
+              placeholder="Last Name"
+              required
+            />
+            <div class="valid-feedback">Lastname is valid!</div>
+            <div class="invalid-feedback">oops! Lastname is not filled.</div>
+          </div>
+          <br />
+
+          <div class="col-md-12">
+            <input
+              class="form-control"
+              type="email"
+              name="email"
+              placeholder="E-mail Address"
+              required
+            />
+            <div class="valid-feedback">Email field is valid!</div>
+            <div class="invalid-feedback">oops! Email is not filled.</div>
+          </div>
+
+          <br />
+
+          <div class="col-md-12">
+            <input
+              class="form-control"
+              type="password"
+              name="password"
+              placeholder="Password"
+              required
+            />
+            <div class="valid-feedback">Password field is valid!</div>
+            <div class="invalid-feedback">oops! Password is not filled</div>
+          </div>
+          <div class="col-md-12 mt-3">
+            <label class="mb-3 mr-1" for="gender">Gender: </label>
+
+            <input
+              type="radio"
+              class="btn-check"
+              name="gender"
+              id="male"
+              autocomplete="off"
+              required
+            />
+            <label class="btn btn-sm btn-outline-secondary" for="male"
+              >Male</label
+            >
+
+            <input
+              type="radio"
+              class="btn-check"
+              name="gender"
+              id="female"
+              autocomplete="off"
+              required
+            />
+            <label class="btn btn-sm btn-outline-secondary" for="female"
+              >Female</label
+            >
+
+            <input
+              type="radio"
+              class="btn-check"
+              name="gender"
+              id="trans"
+              autocomplete="off"
+              required
+            />
+            <label class="btn btn-sm btn-outline-secondary" for="trans"
+              >Transgender</label
+            >
+            <div class="valid-feedback mv-up">You selected a gender!</div>
+            <div class="invalid-feedback mv-up">Please select a gender!</div>
+          </div>
+
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              value=""
+              id="invalidCheck"
+              required
+            />
+            <label class="form-check-label"
+              >I confirm that all the given information is correct.</label
+            >
+            <div class="invalid-feedback">
+              Please confirm that the entered data are all correct!
+            </div>
+          </div>
+          <div class="form-button mt-3">
+            <button id="submit" type="submit" class="btn btn-primary">
+              Signup
+            </button>
+            <button
+              type="button"
+              class="btn btn-secondary ml-3"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer"></div>
+    </div>
+  </div>
+</div> -->

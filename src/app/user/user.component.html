@@ -1,0 +1,63 @@
+<!-- <p>user works!</p> -->
+
+<div class="container">
+  <!-- <table class="table table-striped">
+    <thead>
+      <th>id</th>
+      <th>UserName</th>
+      <th>Role</th>
+      <th>Email Id</th>
+    </thead>
+    <tbody>
+      <tr *ngFor="let u of userArray">
+        <td>{{ u.id }}</td>
+        <td>{{ u.userName }}</td>
+        <td>{{ u.role }}</td>
+        <td>{{ u.email }}</td>
+        <td>
+          <a class="btn btn-warning" routerLink="/users/{{ u.id }}">View</a>
+          <button (click)="onDelete(u.id)" class="btn btn-warning m-2">
+            Delete
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table> -->
+  <div class="row">
+    <div class="col">
+      <div style="width: fit-content; display: flex; flex-wrap: wrap">
+        <mat-card
+          class="example-card m-3"
+          *ngFor="let u of userArray"
+          ngClass="d-flex justify-content-between"
+        >
+          <mat-card-header>
+            <mat-card-title class="d-flex align-items-center">
+              <!-- <mat-icon>account_circle</mat-icon> -->
+              {{ u.title }}.{{ u.userName }}</mat-card-title
+            >
+            <mat-card-subtitle class="d-flex align-items-center">
+              <mat-icon class="material-icons" color="gray"
+                >account_box</mat-icon
+              >{{ u.role }}</mat-card-subtitle
+            >
+            <mat-card-subtitle class="d-flex align-items-center">
+              <mat-icon class="material-icons">email</mat-icon
+              >{{ u.email }}</mat-card-subtitle
+            >
+            <mat-card-subtitle class="d-flex align-items-center">
+              <mat-icon class="material-icons">lock</mat-icon
+              >{{ u.password }}</mat-card-subtitle
+            >
+          </mat-card-header>
+
+          <mat-card-actions>
+            <button mat-button (click)="onDelete(u.id)">
+              <mat-icon class="material-icons" color="warn">delete</mat-icon>
+            </button>
+          </mat-card-actions>
+        </mat-card>
+      </div>
+    </div>
+  </div>
+</div>

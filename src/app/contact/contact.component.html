@@ -1,0 +1,224 @@
+<!-- <form class="example-form">
+    
+  
+    <table class="example-full-width" cellspacing="0"><tr>
+      <td><mat-form-field class="example-full-width" appearance="fill">
+        <mat-label class="lable">First name</mat-label>
+        <input matInput #firstname>
+      </mat-form-field></td>
+      <td><mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Last Name</mat-label>
+        <input matInput #lastname>
+      </mat-form-field></td>
+    </tr></table>
+  
+    <p>
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Address</mat-label>
+        <textarea matInput placeholder="Ex. 100 Main St"></textarea>
+      </mat-form-field>
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Address 2</mat-label>
+        <textarea matInput></textarea>
+      </mat-form-field>
+    </p>
+  
+    <table class="example-full-width" cellspacing="0"><tr>
+      <td><mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>City</mat-label>
+        <input matInput placeholder="Ex. San Francisco">
+      </mat-form-field></td>
+      <td><mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>State</mat-label>
+        <input matInput placeholder="Ex. California">
+      </mat-form-field></td>
+      <td><mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Postal Code</mat-label>
+        <input matInput #postalCode maxlength="5" placeholder="Ex. 94105" value="">
+        <mat-hint align="end"></mat-hint>
+      </mat-form-field></td>
+    </tr>
+    <tr>
+    
+      <td> <button mat-raised-button (click)="onSubmit(firstname,lastname)"  color="primary">Submit</button></td>
+
+    </tr>
+</table>
+  </form> -->
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 col-xs-12 mt-3">
+      <h1 class="text-center">Contact us</h1>
+
+      <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+        <div class="form-row">
+          <div class="form-group col">
+            <label>Title</label>
+            <select
+              formControlName="title"
+              class="form-control"
+              [ngClass]="{ 'is-invalid': submitted && f['title'].errors }"
+            >
+              <option value=""></option>
+              <option value="Mr">Mr</option>
+              <option value="Mrs">Mrs</option>
+              <option value="Miss">Miss</option>
+              <option value="Ms">Ms</option>
+            </select>
+            <div
+              *ngIf="submitted && f['title'].errors"
+              class="invalid-feedback"
+            >
+              <div *ngIf="f['title'].errors['required']">Title is required</div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Full Name</label>
+            <input
+              type="text"
+              formControlName="fName"
+              class="form-control"
+              [ngClass]="{ 'is-invalid': submitted && f['fName'].errors }"
+            />
+            <div
+              *ngIf="submitted && f['fName'].errors"
+              class="invalid-feedback"
+            >
+              <div *ngIf="f['fName'].errors['required']">
+                Full Name is required.
+              </div>
+              <!--this div will be shown if the condition is true-->
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group col">
+          <label>Email</label>
+          <input
+            type="text"
+            formControlName="email"
+            class="form-control"
+            [ngClass]="{ 'is-invalid': submitted && f['email'].errors }"
+          />
+          <div *ngIf="submitted && f['email'].errors" class="invalid-feedback">
+            <div *ngIf="f['email'].errors['required']">Email is required</div>
+            <div *ngIf="f['email'].errors['email']">
+              Email must be a valid email address
+            </div>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col">
+            <label>Date of Birth</label>
+            <input
+              type="date"
+              formControlName="dob"
+              class="form-control"
+              [ngClass]="{ 'is-invalid': submitted && f['dob'].errors }"
+            />
+            <div *ngIf="submitted && f['dob'].errors" class="invalid-feedback">
+              <div *ngIf="f['dob'].errors['required']">
+                Date of Birth is required
+              </div>
+              <div *ngIf="f['dob'].errors['pattern']">
+                Date of Birth must be a valid date in the format YYYY-MM-DD
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group col">
+            <label>Mobile Number</label>
+            <input
+              type="number"
+              formControlName="mobilenumber"
+              class="form-control"
+              [ngClass]="{
+                'is-invalid': submitted && f['mobilenumber'].errors
+              }"
+            />
+            <div
+              *ngIf="submitted && f['mobilenumber'].errors"
+              class="invalid-feedback"
+            >
+              <div *ngIf="f['mobilenumber'].errors['required']">
+                Password is required
+              </div>
+              <div *ngIf="f['mobilenumber'].errors['minlength']">
+                Password must be at least 10 characters
+              </div>
+            </div>
+          </div>
+          <div class="form-group col">
+            <label>Location</label>
+            <input
+              type="text"
+              formControlName="location"
+              class="form-control"
+              [ngClass]="{
+                'is-invalid': submitted && f['location'].errors
+              }"
+            />
+            <div
+              *ngIf="submitted && f['location'].errors"
+              class="invalid-feedback"
+            >
+              <div *ngIf="f['location'].errors['required']">
+                Confirm Password is required
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="form-group form-check">
+          <input
+            type="checkbox"
+            formControlName="acceptTerms"
+            id="acceptTerms"
+            class="form-check-input"
+            [ngClass]="{
+              'is-invalid': submitted && f['acceptTerms'].errors
+            }"
+          />
+          <label for="acceptTerms" class="form-check-label"
+            >Accept Terms & Conditions</label
+          >
+          <div
+            *ngIf="submitted && f['acceptTerms'].errors"
+            class="invalid-feedback"
+          >
+            Accept Ts & Cs is required
+          </div>
+        </div>
+        <div>
+          <button class="btn btn-primary m-2" type="submit">Send</button>
+        </div>
+      </form>
+    </div>
+    <div class="col-md-6 col-xs-12 mt-3">
+      <h2>Located at:</h2>
+      <h3>
+        #95, 3rd Floor, Rudra Chambers, <br />
+        4th Main, 11th Cross Rd, Malleswara,<br />
+        Bengaluru, Karnataka 560003
+      </h3>
+      <br />
+      <div class="embed-responsive embed-responsive-21by9 col-xs-12 col-md-12">
+        <iframe
+          class="embed-responsive-item"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3887.532700269108!2d77.56616151464553!3d13.00171299083612!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae162f554c1617%3A0x57201880f8ef2c16!2sSignDesk.com!5e0!3m2!1sen!2sin!4v1638953889534!5m2!1sen!2sin"
+          width="100%"
+          height="350"
+        ></iframe>
+      </div>
+      <h4 class="mt-4">
+        Note:
+        <u
+          >If you want to contact us. Please send a mail through the given
+          contact us form.</u
+        >
+      </h4>
+    </div>
+  </div>
+</div>

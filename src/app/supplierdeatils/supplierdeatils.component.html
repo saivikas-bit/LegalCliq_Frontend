@@ -1,0 +1,38 @@
+<!-- <h1>{{ supplier.sName }}</h1> -->
+
+<!-- <img src="{{ supplier.logo }}" />
+<h4>Product id: {{ supplier.id }}</h4>
+<h3>Product Name: {{ supplier.sName }}</h3>
+<h5>Product Price: {{ supplier.sLocation }}</h5> -->
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 col-xs-12">
+      <mat-card class="example-card">
+        <mat-card-header>
+          <div mat-card-avatar class="example-header-image"></div>
+          <mat-card-title>{{ supplier.sName }}</mat-card-title>
+          <mat-card-subtitle> {{ supplier.sLocation }}</mat-card-subtitle>
+        </mat-card-header>
+        <img
+          mat-card-image
+          src="{{ supplier.logo }}"
+          alt="Photo of a {{ supplier.logo }}"
+          style="height: 400px"
+        />
+        <mat-card-content>
+          <p>
+            The {{ supplier.sName }} company, abbreviated as co., is a legal
+            entity representing an association of people, whether natural, legal
+            or a mixture of both, with a specific objective. Company members
+            share a common purpose and unite to achieve specific, declared
+            goals.
+          </p>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-button>SHARE</button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </div>
+</div>

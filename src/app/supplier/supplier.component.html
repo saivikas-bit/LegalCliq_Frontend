@@ -1,0 +1,30 @@
+<!-- <p>supplier works!</p> -->
+
+<div class="container">
+  <h2>Suppliers:</h2>
+  <div class="row">
+    <div class="col-md-12 col-xs-12 d-flex flex-wrap">
+      <div *ngFor="let sup of supplierArr" class="col-xs-12 m-3">
+        <mat-card class="example-card">
+          <mat-card-title-group>
+            <mat-card-title>{{ sup.sName }}</mat-card-title>
+            <mat-card-subtitle>
+              Supplier Id:{{ sup.supplier_id }}</mat-card-subtitle
+            >
+            <img mat-card-sm-image src="{{ sup.logo }}" />
+          </mat-card-title-group>
+          <mat-card-content> Location : {{ sup.sLocation }} </mat-card-content>
+          <div class="d-flex justify-content-between">
+            <button class="btn btn-warning" (click)="onDelete(sup.id)">
+              Delete
+            </button>
+
+            <a class="btn btn-warning" routerLink="/suppliers/{{ sup.id }}"
+              >View</a
+            >
+          </div>
+        </mat-card>
+      </div>
+    </div>
+  </div>
+</div>

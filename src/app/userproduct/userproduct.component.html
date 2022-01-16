@@ -1,0 +1,38 @@
+<!-- <p>userproduct works!</p> -->
+
+<!-- <h5>I am a Product from {{retailChainNames}}</h5> -->
+<div class="container">
+  <h2>Products:</h2>
+  <div class="row">
+    <div class="col-md-12 col-xs-12 d-md-flex flex-wrap">
+      <div *ngFor="let p of productArr" class="m-3">
+        <!-- <img src={{p.img_path}} />
+            <h4>Product id: {{p.id}} </h4>
+            <h4>Product Name: {{p.pName}}</h4>
+            <h5>Product Price: {{p.price}}</h5>
+            <div class="vr"></div> -->
+        <div class="col-xs-12 card">
+          <img
+            class="card-img-top"
+            src="{{ p.img_path }}"
+            alt="Card image cap"
+            width="fit-content"
+          />
+          <div class="card-body">
+            <h3 class="card-title">{{ p.pName }}</h3>
+            <h4 class="card-text">₹{{ p.price }}</h4>
+
+            <div class="d-flex justify-content-between">
+              <a class="btn btn-success" routerLink="/product/{{ p.id }}"
+                >View</a
+              >
+              <button class="btn btn-success" (click)="addCart(p)">
+                Add to Cart
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

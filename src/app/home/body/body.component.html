@@ -1,0 +1,87 @@
+<!-- 
+<h2>
+Products:
+</h2> -->
+<!-- <div *ngFor="let r of retailChainNames">
+<app-product [retailChainNames]="r"></app-product>
+</div> -->
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 col-xs-12 mt-3">
+      <h4>
+        <strong style="font-size: 18px">LegalCliq</strong> (stylised as
+        LegalCliq) is an Indian e-commerce company based in Bangalore, India. It
+        is owned by Desknine Digital Limited, of Tata Group. TataCLiQ operates
+        in categories such as Electronics, Fashion, Footwear and Accessories.
+        Tata Group's E-commerce platform LegalCliq also launched a premium and
+        luxury fashion and lifestyle destination, LegalCliq Luxury and It have
+        house a wide range of apparel and accessories for men and women by
+        luxury and bridge-to-luxury brands.
+      </h4>
+      <button
+        class="mt-3"
+        mat-raised-button
+        color="accent"
+        routerLink="/userproducts"
+      >
+        Goto Products
+      </button>
+    </div>
+    <div class="col-md-6 col-xs-12">
+      <img
+        src="https://kriworld.co.in/assets_new/img/web-development-1.gif"
+        width="100%"
+      />
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <h2>Our Products:</h2>
+    <div class="col-md-12 col-xs-12 d-flex flex-wrap">
+      <div *ngFor="let p of productArr" class="m-3">
+        <div class="card" style="width: 100%">
+          <img
+            class="card-img-top"
+            src="{{ p.img_path }}"
+            alt="Card image cap"
+          />
+          <div class="card-body">
+            <h4 class="card-title">{{ p.pName }}</h4>
+            <h4 class="card-text">₹{{ p.price }}</h4>
+            <a routerLink="/userproducts" class="btn btn-primary"
+              >Add to Cart</a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- <h2>Suppliers:</h2>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-12 col-xs-12 d-flex ">
+      <div *ngFor="let sup of supplierArr" class="m-3" >
+        <mat-card class="example-card">
+          <mat-card-title-group>
+            <mat-card-title>{{sup.sName}}</mat-card-title>
+            <mat-card-subtitle> Supplier Id:{{sup.supplier_id}}</mat-card-subtitle>
+            <img mat-card-sm-image src={{sup.logo}} >
+          </mat-card-title-group>
+          <mat-card-content>
+       Location :  {{sup.sLocation}}
+          </mat-card-content>
+        </mat-card>
+      </div>
+      
+     </div>
+  </div>
+</div> -->
+
+<!-- <h1 style="text-align: center; color: rgb(18, 70, 77)">
+  WELCOME to LegalCliq Family
+</h1> -->

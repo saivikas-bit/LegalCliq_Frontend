@@ -1,0 +1,196 @@
+<!-- <p>userupdate works!</p> -->
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 col-xs-12">
+      <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <label class="form-lable" for="id">Select User:</label>
+          <select
+            class="form-select"
+            id="id"
+            formControlName="id"
+            (ngModelChange)="onChangeType($event, $event.target)"
+            [ngClass]="{ 'is-invalid': submitted && f['id'].errors }"
+          >
+            <option selected>Select a User</option>
+            <option *ngFor="let u of userArray" [ngValue]="u.id">
+              {{ u.userName }}
+            </option>
+          </select>
+          <div *ngIf="submitted && f['id'].errors" class="invalid-feedback">
+            <div *ngIf="f['id'].errors['required']">Select user.</div>
+          </div>
+        </div>
+      </form>
+
+      <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+        <div class="form-row">
+          <div class="form-group col">
+            <label>Title</label>
+            <select
+              formControlName="title"
+              class="form-control"
+              [ngClass]="{ 'is-invalid': submitted && f['title'].errors }"
+            >
+              <option value=""></option>
+              <option value="Mr">Mr</option>
+              <option value="Mrs">Mrs</option>
+              <option value="Miss">Miss</option>
+              <option value="Ms">Ms</option>
+            </select>
+            <div
+              *ngIf="submitted && f['title'].errors"
+              class="invalid-feedback"
+            >
+              <div *ngIf="f['title'].errors['required']">Title is required</div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>User Name</label>
+            <input
+              type="text"
+              formControlName="uName"
+              class="form-control"
+              [ngClass]="{ 'is-invalid': submitted && f['uName'].errors }"
+            />
+            <div
+              *ngIf="submitted && f['uName'].errors"
+              class="invalid-feedback"
+            >
+              <div *ngIf="f['uName'].errors['required']">
+                User Name is required
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group col">
+          <label>Email</label>
+          <input
+            type="email"
+            formControlName="email"
+            class="form-control"
+            [ngClass]="{ 'is-invalid': submitted && f['email'].errors }"
+          />
+          <div *ngIf="submitted && f['email'].errors" class="invalid-feedback">
+            <div *ngIf="f['email'].errors['required']">Email is required</div>
+            <div *ngIf="f['email'].errors['email']">
+              Email must be a valid email address
+            </div>
+          </div>
+        </div>
+        <div class="form-group col">
+          <label>Role</label>
+          <input
+            type="text"
+            formControlName="role"
+            class="form-control"
+            [ngClass]="{ 'is-invalid': submitted && f['role'].errors }"
+          />
+          <div *ngIf="submitted && f['role'].errors" class="invalid-feedback">
+            <div *ngIf="f['role'].errors['required']">Email is required</div>
+          </div>
+        </div>
+        <!-- </div>  -->
+        <div class="form-row">
+          <div class="form-group col">
+            <label>Password</label>
+            <input
+              type="password"
+              formControlName="pswd"
+              class="form-control"
+              [ngClass]="{ 'is-invalid': submitted && f['pswd'].errors }"
+            />
+            <div *ngIf="submitted && f['pswd'].errors" class="invalid-feedback">
+              <div *ngIf="f['pswd'].errors['required']">
+                Password is required
+              </div>
+              <div *ngIf="f['pswd'].errors['minlength']">
+                Password must be at least 6 characters
+              </div>
+            </div>
+          </div>
+          <div class="form-group col">
+            <label>Confirm Password</label>
+            <input
+              type="password"
+              formControlName="confirmPswd"
+              class="form-control"
+              [ngClass]="{
+                'is-invalid': submitted && f['confirmPswd'].errors
+              }"
+            />
+            <div
+              *ngIf="submitted && f['confirmPswd'].errors"
+              class="invalid-feedback"
+            >
+              <div *ngIf="f['confirmPswd'].errors['required']">
+                Confirm Password is required
+              </div>
+              <div *ngIf="f['confirmPswd'].errors['mustMatch']">
+                Passwords must match
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="form-group form-check">
+          <input
+            type="checkbox"
+            formControlName="acceptTerms"
+            id="acceptTerms"
+            class="form-check-input"
+            [ngClass]="{ 'is-invalid': submitted && f['acceptTerms'].errors }"
+          />
+          <label for="acceptTerms" class="form-check-label"
+            >Accept Terms & Conditions</label
+          >
+          <div
+            *ngIf="submitted && f['acceptTerms'].errors"
+            class="invalid-feedback"
+          >
+            Accept Ts & Cs is required
+          </div>
+        </div>
+        <div class="text-center d-flex justify-content-end">
+          <button class="btn btn-primary m-2" type="submit">Update</button>
+        </div>
+      </form>
+      <!---  /***/*  --!>
+     
+      <!-- <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <label for="uName">User Name:</label>
+          <input
+            id="uName"
+            type="text"
+            class="form-control"
+            placeholder="{{ userForm.value.uName }}"
+            formControlName="uName"
+          />
+          <label for="pswd">Password:</label>
+          <input
+            id="pswd"
+            type="password"
+            class="form-control"
+            formControlName="pswd"
+          />
+          <label for="role">Role:</label>
+          <input
+            id="role"
+            type="text"
+            class="form-control"
+            formControlName="role"
+          />
+          <label for="email">Email Id:</label>
+          <input
+            id="email"
+            type="email"
+            class="form-control"
+            formControlName="email"
+          />
+        </div>
+        <button type="submit" class="btn btn-success">Submit</button>
+      </form> -->
+    </div>
+  </div>
+</div>
