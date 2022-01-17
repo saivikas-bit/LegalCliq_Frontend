@@ -27,11 +27,15 @@ export class CartComponent implements OnInit {
     this.cartItems.product = this.cartItems.product.filter(
       (product: any) => product.id !== id
     );
-    this.cartService
-      .deleteItem(this.cartItems.id, this.cartItems)
-      .subscribe((data) => {
+    // this.cartService
+    //   .deleteItem(this.cartItems.id, this.cartItems)
+    //   .subscribe((data) => {
+    //     confirm('Item Deleted :' + `${id}`);
+    //   });
+
+      this.cartService.updateCart(this.currentUser?.id,this.cartItems.product).subscribe(data=>{
         confirm('Item Deleted :' + `${id}`);
-      });
+      })
     console.log(this.cartItems);
     location.reload();
     // this.cartService.$itemAdded.next(true);

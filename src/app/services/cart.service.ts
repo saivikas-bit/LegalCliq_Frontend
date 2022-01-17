@@ -43,6 +43,11 @@ export class CartService {
     return this.httpClient.put(this.baseUrl + '/cartItems/' + id, cartItems);
     // .pipe(retry(1), catchError(this.httpError));
   }
+
+  updateCart(userId:any,products:any){
+    return this.httpClient.post(this.baseUrl+'/products',{userId:userId,products:products});
+  }
+
   httpError(error: HttpErrorResponse) {
     let msg = '';
     if (error.error instanceof ErrorEvent) {

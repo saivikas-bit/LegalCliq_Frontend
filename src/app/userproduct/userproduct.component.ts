@@ -34,11 +34,15 @@ export class UserproductComponent implements OnInit {
     // this.userService.login;
     if (localStorage.getItem('user') !== 'null') {
       this.cartItems.product.push(product);
-      this.cartService
-        .deleteItem(this.cartItems.id, this.cartItems)
-        .subscribe((data: any) => {
-          this.cartService.$itemAdded.next('shiva');
-        });
+      this.cartService.updateCart(this.currentUser?.id,this.cartItems.product)
+      .subscribe((data: any) => {
+        this.cartService.$itemAdded.next('shiva');
+      });
+      // this.cartService
+      //   .deleteItem(this.cartItems.id, this.cartItems)
+      //   .subscribe((data: any) => {
+      //     this.cartService.$itemAdded.next('shiva');
+      //   });
     } else {
       confirm('Plese Login');
     }
