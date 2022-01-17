@@ -42,10 +42,8 @@ export class HeaderComponent implements OnInit {
       }
     });
     this.cartService.$itemAdded.subscribe((data) => {
-      this.cartService.getCartItems().subscribe((data) => {
-        this.cartItems = data.find(
-          (user) => user.userId == this.currentUser?.id
-        );
+      this.cartService.getCartItem(this.currentUser?.id).subscribe((data) => {
+        this.cartItems = data;
 
         // this.cartItems = data.filter(
         //   (user) => user.userId === this.currentUser?.id
@@ -54,10 +52,8 @@ export class HeaderComponent implements OnInit {
     });
 
     if (this.currentUser !== null) {
-      this.cartService.getCartItems().subscribe((data) => {
-        this.cartItems = data.find(
-          (user) => user.userId == this.currentUser?.id
-        );
+      this.cartService.getCartItem(this.currentUser?.id).subscribe((data) => {
+        this.cartItems = data;
         // this.cartItems = data.filter(
         //   (user) => user.userId === this.currentUser?.id
         // );

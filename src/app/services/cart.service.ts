@@ -34,6 +34,11 @@ export class CartService {
       .get<any[]>(this.baseUrl + '/cartItems')
       .pipe(retry(1), catchError(this.httpError));
   }
+
+  getCartItem(userId:string){
+    return this.httpClient.get(this.baseUrl+'/getUserCart/'+userId)
+  }
+
   deleteItem(id: number, cartItems: any): Observable<any> {
     return this.httpClient.put(this.baseUrl + '/cartItems/' + id, cartItems);
     // .pipe(retry(1), catchError(this.httpError));

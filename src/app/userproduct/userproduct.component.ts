@@ -46,10 +46,8 @@ export class UserproductComponent implements OnInit {
 
   ngOnInit(): void {
     this.currentUser = JSON.parse(`${localStorage.getItem('user')}`);
-    this.cartService.getCartItems().subscribe((data) => {
-      this.cartItems = data.find(
-        (data) => data['userId'] === this.currentUser?.id
-      );
+    this.cartService.getCartItem(this.currentUser?.id).subscribe((data) => {
+      this.cartItems = data;
     });
   }
 }
